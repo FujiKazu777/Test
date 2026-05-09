@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけんゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>✊ じゃんけんゲーム ✌️</h1>
+
+    <div class="score-board">
+      <div class="score">
+        <span class="label">あなた</span>
+        <span class="value" id="player-score">0</span>
+      </div>
+      <div class="score">
+        <span class="label">引き分け</span>
+        <span class="value" id="draw-score">0</span>
+      </div>
+      <div class="score">
+        <span class="label">コンピュータ</span>
+        <span class="value" id="computer-score">0</span>
+      </div>
+    </div>
+
+    <div class="battle-area">
+      <div class="hand-display">
+        <p class="hand-label">あなた</p>
+        <div class="hand" id="player-hand">🤜</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="hand-display">
+        <p class="hand-label">コンピュータ</p>
+        <div class="hand computer" id="computer-hand">🤛</div>
+      </div>
+    </div>
+
+    <div id="result-message" class="result-message"></div>
+
+    <div class="choices">
+      <button class="choice-btn" data-choice="rock" onclick="play('rock')">
+        <span class="emoji">✊</span>
+        <span class="name">グー</span>
+      </button>
+      <button class="choice-btn" data-choice="scissors" onclick="play('scissors')">
+        <span class="emoji">✌️</span>
+        <span class="name">チョキ</span>
+      </button>
+      <button class="choice-btn" data-choice="paper" onclick="play('paper')">
+        <span class="emoji">🖐️</span>
+        <span class="name">パー</span>
+      </button>
+    </div>
+
+    <button class="reset-btn" onclick="resetGame()">リセット</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
