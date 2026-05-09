@@ -5,6 +5,7 @@ const HANDS = {
 };
 
 const scores = { player: 0, computer: 0, draw: 0 };
+let selectedHand = null;
 
 function getComputerChoice() {
   const choices = Object.keys(HANDS);
@@ -17,15 +18,41 @@ function getResult(player, computer) {
   return 'lose';
 }
 
-function play(playerChoice) {
-  const computerChoice = getComputerChoice();
-  const result = getResult(playerChoice, computerChoice);
+function selectHand(choice) {
+  selectedHand = choice;
 
-  animateHands(playerChoice, computerChoice);
+  document.querySelectorAll('.choice-btn').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.choice === choice);
+  });
+
+  document.getElementById('play-btn').disabled = false;
+
+  const playerHand = document.getElementById('player-hand');
+  playerHand.textContent = HANDS[choice].emoji;
+}
+
+function play() {
+  if (!selectedHand) return;
+
+  const computerChoice = getComputerChoice();
+  const result = getResult(selectedHand, computerChoice);
+
+  document.getElementById('play-btn').disabled = true;
+  document.querySelectorAll('.choice-btn').forEach(btn => btn.disabled = true);
+
+  animateHands(selectedHand, computerChoice);
 
   scores[result === 'win' ? 'player' : result === 'lose' ? 'computer' : 'draw']++;
   updateScoreBoard();
-  showResult(result, playerChoice, computerChoice);
+  showResult(result, selectedHand, computerChoice);
+
+  setTimeout(() => {
+    selectedHand = null;
+    document.querySelectorAll('.choice-btn').forEach(btn => {
+      btn.disabled = false;
+      btn.classList.remove('selected');
+    });
+  }, 700);
 }
 
 function animateHands(playerChoice, computerChoice) {

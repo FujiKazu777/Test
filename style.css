@@ -134,6 +134,12 @@ h1 {
   color: #ffc107;
 }
 
+.choice-prompt {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
 .choices {
   display: flex;
   justify-content: center;
@@ -156,15 +162,27 @@ h1 {
   min-width: 100px;
 }
 
-.choice-btn:hover {
+.choice-btn:hover:not(:disabled) {
   border-color: #667eea;
   background: #f0f2ff;
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
 }
 
-.choice-btn:active {
+.choice-btn:active:not(:disabled) {
   transform: translateY(0);
+}
+
+.choice-btn.selected {
+  border-color: #667eea;
+  background: #f0f2ff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+  transform: translateY(-4px);
+}
+
+.choice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .choice-btn .emoji {
@@ -177,7 +195,39 @@ h1 {
   color: #333;
 }
 
+.play-btn {
+  display: block;
+  margin: 0 auto 16px;
+  padding: 14px 48px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+}
+
+.play-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+}
+
+.play-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.play-btn:disabled {
+  background: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
 .reset-btn {
+  display: block;
+  margin: 0 auto;
   padding: 10px 32px;
   border: none;
   border-radius: 50px;

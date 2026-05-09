@@ -39,21 +39,24 @@
 
     <div id="result-message" class="result-message"></div>
 
+    <p class="choice-prompt">手を選んでください</p>
+
     <div class="choices">
-      <button class="choice-btn" data-choice="rock" onclick="play('rock')">
+      <button class="choice-btn" data-choice="rock" onclick="selectHand('rock')">
         <span class="emoji">✊</span>
         <span class="name">グー</span>
       </button>
-      <button class="choice-btn" data-choice="scissors" onclick="play('scissors')">
+      <button class="choice-btn" data-choice="scissors" onclick="selectHand('scissors')">
         <span class="emoji">✌️</span>
         <span class="name">チョキ</span>
       </button>
-      <button class="choice-btn" data-choice="paper" onclick="play('paper')">
+      <button class="choice-btn" data-choice="paper" onclick="selectHand('paper')">
         <span class="emoji">🖐️</span>
         <span class="name">パー</span>
       </button>
     </div>
 
+    <button class="play-btn" id="play-btn" onclick="play()" disabled>勝負！</button>
     <button class="reset-btn" onclick="resetGame()">リセット</button>
   </div>
 
