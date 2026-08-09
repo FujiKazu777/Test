@@ -3,62 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>じゃんけんゲーム</title>
+  <title>Eitあ | 会社紹介</title>
+  <meta name="description" content="Eitあの公式サイトです。事業内容や会社概要をご紹介します。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>✊ じゃんけんゲーム ✌️</h1>
-
-    <div class="score-board">
-      <div class="score">
-        <span class="label">あなた</span>
-        <span class="value" id="player-score">0</span>
-      </div>
-      <div class="score">
-        <span class="label">引き分け</span>
-        <span class="value" id="draw-score">0</span>
-      </div>
-      <div class="score">
-        <span class="label">コンピュータ</span>
-        <span class="value" id="computer-score">0</span>
-      </div>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#top" class="logo">Eit<span class="accent">あ</span></a>
+      <nav class="nav">
+        <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#about">会社概要</a></li>
+          <li><a href="#services">事業内容</a></li>
+          <li><a href="#strengths">強み</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="battle-area">
-      <div class="hand-display">
-        <p class="hand-label">あなた</p>
-        <div class="hand" id="player-hand">🤜</div>
+  <main>
+    <section id="top" class="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">WELCOME TO Eitあ</p>
+        <h1 class="hero-title">想いをかたちに、<br>未来をつなぐ。</h1>
+        <p class="hero-lead">
+          Eitあは、確かな技術と丁寧なコミュニケーションでお客様の課題解決に取り組む会社です。
+        </p>
+        <a href="#contact" class="btn btn-primary">お問い合わせはこちら</a>
       </div>
-      <div class="vs">VS</div>
-      <div class="hand-display">
-        <p class="hand-label">コンピュータ</p>
-        <div class="hand computer" id="computer-hand">🤛</div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">会社概要</h2>
+        <p class="section-lead">Eitあについてご紹介します。</p>
+        <table class="about-table">
+          <tbody>
+            <tr>
+              <th>会社名</th>
+              <td>Eitあ</td>
+            </tr>
+            <tr>
+              <th>設立</th>
+              <td>2020年4月</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>東京都千代田区〇〇1-2-3</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>代表取締役　山田 太郎</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>ソフトウェア開発・コンサルティング事業</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
+    </section>
 
-    <div id="result-message" class="result-message"></div>
+    <section id="services" class="section section-alt">
+      <div class="section-inner">
+        <h2 class="section-title">事業内容</h2>
+        <p class="section-lead">お客様のニーズに合わせた幅広いサービスを提供しています。</p>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>システム開発</h3>
+            <p>Webサービスや業務システムの企画から開発・運用まで一貫してサポートします。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📊</div>
+            <h3>コンサルティング</h3>
+            <p>業務課題の分析からDX推進まで、経営に寄り添った提案を行います。</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3>サポート・保守</h3>
+            <p>導入後も安心してご利用いただけるよう、継続的な運用サポートを提供します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p class="choice-prompt">手を選んでください</p>
+    <section id="strengths" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">私たちの強み</h2>
+        <div class="strength-grid">
+          <div class="strength">
+            <span class="strength-number">01</span>
+            <h3>豊富な実績</h3>
+            <p>さまざまな業種・規模のお客様への支援実績があります。</p>
+          </div>
+          <div class="strength">
+            <span class="strength-number">02</span>
+            <h3>丁寧なヒアリング</h3>
+            <p>お客様の課題を深く理解し、最適な解決策をご提案します。</p>
+          </div>
+          <div class="strength">
+            <span class="strength-number">03</span>
+            <h3>スピード対応</h3>
+            <p>スピーディーな対応で、お客様のビジネスの成長を後押しします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="choices">
-      <button class="choice-btn" data-choice="rock" onclick="selectHand('rock')">
-        <span class="emoji">✊</span>
-        <span class="name">グー</span>
-      </button>
-      <button class="choice-btn" data-choice="scissors" onclick="selectHand('scissors')">
-        <span class="emoji">✌️</span>
-        <span class="name">チョキ</span>
-      </button>
-      <button class="choice-btn" data-choice="paper" onclick="selectHand('paper')">
-        <span class="emoji">🖐️</span>
-        <span class="name">パー</span>
-      </button>
-    </div>
+    <section id="contact" class="section section-alt">
+      <div class="section-inner section-inner-narrow">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="section-lead">ご質問・ご相談はお気軽にお問い合わせください。</p>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+          </div>
+          <div class="form-row">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" placeholder="example@eita.co.jp" required>
+          </div>
+          <div class="form-row">
+            <label for="message">お問い合わせ内容</label>
+            <textarea id="message" name="message" rows="5" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">送信する</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <button class="play-btn" id="play-btn" onclick="play()" disabled>勝負！</button>
-    <button class="reset-btn" onclick="resetGame()">リセット</button>
-  </div>
+  <footer class="footer">
+    <p>&copy; 2026 Eitあ. All Rights Reserved.</p>
+  </footer>
 
   <script src="app.js"></script>
 </body>
